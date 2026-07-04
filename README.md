@@ -1,6 +1,6 @@
-# 🎨 AI Image Generator
+<img width="975" height="513" alt="image" src="https://github.com/user-attachments/assets/fb3dbeb1-ac4f-4c23-9320-ec144ba32b67" /># 🎨 AI Image Generator
 
-A full-stack AI Image Generator web application built using the MERN Stack. Users can generate AI-powered images through a clean and responsive interface.
+A modern full-stack AI Image Generator web application built using the MERN Stack. Users can generate high-quality AI images by entering text prompts, manage their generation history, and download images through a clean and responsive interface.
 
 ## 🚀 Live Demo
 
@@ -14,12 +14,19 @@ A full-stack AI Image Generator web application built using the MERN Stack. User
 
 ## ✨ Features
 
-- 🖼️ AI Image Generation
-- 🎨 Modern Responsive UI
-- ⚡ Fast Performance
+- 🖼️ AI Image Generation using Pollinations AI
+- 🔐 User Authentication (Login & Register)
+- 📝 Custom Prompt Input
+- ⚡ Generate AI Images Instantly
+- 🎲 Surprise Me (100 Random Prompts)
+- 📜 Prompt History
+- 🗑️ Delete History
+- ⬇️ Download Generated Images
+- 🏠 Home Page Navigation
+- 📱 Fully Responsive Design
+- 🚀 Fast Performance
 - 🔗 REST API Integration
-- 📱 Mobile Friendly
-- 🌙 Clean Design
+- ☁️ Cloud Database Storage
 
 ---
 
@@ -28,20 +35,26 @@ A full-stack AI Image Generator web application built using the MERN Stack. User
 ### Frontend
 - React.js
 - Vite
-- CSS
+- Tailwind CSS
 
 ### Backend
 - Node.js
 - Express.js
 
 ### Database
-- MongoDB
+- MongoDB Atlas
+
+### AI Integration
+- Pollinations AI API
+
+### Authentication
+- JWT (JSON Web Token)
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 AI-Image-Generator/
 │
 ├── client/
@@ -63,13 +76,13 @@ AI-Image-Generator/
 
 ## ⚙️ Installation
 
-Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/fatimaabdulrazzaq03-hash/AI-Image-Generator.git
 ```
 
-Install frontend
+### Install Frontend
 
 ```bash
 cd client
@@ -77,7 +90,7 @@ npm install
 npm run dev
 ```
 
-Install backend
+### Install Backend
 
 ```bash
 cd server
@@ -87,15 +100,25 @@ npm start
 
 ---
 
+## 🚀 Future Enhancements
+
+- 🌙 Dark Mode
+- ❤️ Favorite Images
+- 👤 User Profile
+- 🖌️ AI Image Editing
+- 📤 Social Sharing
+- 📱 Mobile Application
+
+---
+
 ## 👩‍💻 Author
 
 **Fatima Razzaq**
 
 BS Computer Science Student
 
+
+
+
 GitHub:
 https://github.com/fatimaabdulrazzaq03-hash
-
----
-
-⭐ If you like this project, don't forget to give it a Star!
