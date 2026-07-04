@@ -1,4 +1,11 @@
-<img width="975" height="513" alt="image" src="https://github.com/user-attachments/assets/fb3dbeb1-ac4f-4c23-9320-ec144ba32b67" /># 🎨 AI Image Generator
+<img width="975" height="513" alt="image" src="https://github.com/user-attachments/assets/fb3dbeb1-ac4f-4c23-9320-ec144ba32b67" /># 🎨
+<img width="975" height="640" alt="image" src="https://github.com/user-attachments/assets/48fe1d14-60ab-4a90-8644-c08467f9ecd3" />
+<img width="975" height="667" alt="image" src="https://github.com/user-attachments/assets/dbd83e0b-5941-4bb3-a37d-15209586ced6" />
+<img width="975" height="534" alt="image" src="https://github.com/user-attachments/assets/6204d8d3-4f63-475a-a8d7-70b307d57247" />
+
+
+
+AI Image Generator
 
 A modern full-stack AI Image Generator web application built using the MERN Stack. Users can generate high-quality AI images by entering text prompts, manage their generation history, and download images through a clean and responsive interface.
 
