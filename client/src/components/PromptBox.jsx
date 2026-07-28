@@ -43,11 +43,15 @@ function PromptBox({ setImageUrl, imageUrl, setHistory }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/generate",
-        {
-          prompt,
-        }
-      );
+  "https://peaceful-delight-production.up.railway.app/generate",
+  {
+    prompt,
+  }
+);
+
+
+
+
 
       const url = response.data.imageUrl;
 
