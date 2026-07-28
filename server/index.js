@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const imageRoutes = require("./routes/imageRoutes");
-const Image = require("./models/Image");
+// const Image = require("./models/Image");
 
 dotenv.config();
 
@@ -35,25 +35,26 @@ app.post("/generate", async (req, res) => {
       prompt
     )}?seed=${Date.now()}`;
 
-    // Save to MongoDB
-    await Image.create({
-      prompt,
-      imageUrl,
-    });
+    // MongoDB save temporarily disabled
+    // await Image.create({
+    //   prompt,
+    //   imageUrl,
+    // });
 
     res.json({
       success: true,
       imageUrl,
     });
-  } catch (error) {
-  console.error("❌ FULL ERROR:");
-  console.error(error);
 
-  res.status(500).json({
-    success: false,
-    message: error.message,
-  });
-}
+  } catch (error) {
+    console.error("❌ FULL ERROR:");
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
