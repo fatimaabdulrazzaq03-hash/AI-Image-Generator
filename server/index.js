@@ -1,18 +1,25 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-const imageRoutes = require("./routes/imageRoutes");
-// const Image = require("./models/Image");
 
 dotenv.config();
 
-connectDB();
+const connectDB = require("./config/db");
+console.log("DB EXPORT =", connectDB);
+
+const imageRoutes = require("./routes/imageRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// MongoDB Connect
+if (typeof connectDB === "function") {
+  connectDB();
+} else {
+  console.log("❌ connectDB is NOT a function");
+}
 
 app.use("/api/images", imageRoutes);
 
@@ -31,15 +38,7 @@ app.post("/generate", async (req, res) => {
       });
     }
 
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(
-      prompt
-    )}?seed=${Date.now()}`;
-
-    // MongoDB save temporarily disabled
-    // await Image.create({
-    //   prompt,
-    //   imageUrl,
-    // });
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}`;
 
     res.json({
       success: true,
@@ -47,7 +46,6 @@ app.post("/generate", async (req, res) => {
     });
 
   } catch (error) {
-    console.error("❌ FULL ERROR:");
     console.error(error);
 
     res.status(500).json({
