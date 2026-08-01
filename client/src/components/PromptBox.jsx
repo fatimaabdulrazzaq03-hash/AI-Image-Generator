@@ -5,6 +5,8 @@ function PromptBox({ setImageUrl, imageUrl }) {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const API_URL = "https://peaceful-delight-production.up.railway.app";
+
   const prompts = [
     "A cute fluffy white cat sitting on a wooden table",
     "A golden retriever playing in a green park",
@@ -33,8 +35,6 @@ function PromptBox({ setImageUrl, imageUrl }) {
     "A realistic robot standing in a futuristic laboratory",
   ];
 
-  const API_URL = "https://peaceful-delight-production.up.railway.app";
-
   const handleGenerate = async () => {
     if (!prompt.trim()) {
       alert("Please enter a prompt!");
@@ -44,17 +44,13 @@ function PromptBox({ setImageUrl, imageUrl }) {
     setLoading(true);
 
     try {
-      // Generate Image
       const response = await axios.post(`${API_URL}/generate`, {
         prompt,
       });
 
-      console.log("Backend Response:", response.data);
-
       if (response.data.success) {
         setImageUrl(response.data.imageUrl);
 
-        // Save Image to MongoDB
         await axios.post(`${API_URL}/api/images/save`, {
           prompt,
           imageUrl: response.data.imageUrl,
@@ -64,11 +60,6 @@ function PromptBox({ setImageUrl, imageUrl }) {
       }
     } catch (error) {
       console.error(error);
-
-      if (error.response) {
-        console.log(error.response.data);
-      }
-
       alert("Failed to connect to backend.");
     } finally {
       setLoading(false);
@@ -92,34 +83,31 @@ function PromptBox({ setImageUrl, imageUrl }) {
       const link = document.createElement("a");
       link.href = url;
       link.download = "ai-image.png";
-
-      document.body.appendChild(link);
       link.click();
 
-      document.body.removeChild(link);
-
       window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error(error);
+    } catch {
       alert("Download failed.");
     }
   };
 
   return (
-    <div className="w-full max-w-5xl mt-12 relative z-20">
-      <div className="bg-gray-900 border border-purple-600 rounded-2xl p-3 flex items-center gap-3">
+    <div className="w-full max-w-5xl mt-10 px-2 sm:px-0">
+
+      <div className="bg-gray-900 border border-purple-600 rounded-2xl p-4 flex flex-col sm:flex-row gap-3">
+
         <input
           type="text"
           placeholder="Describe your imagination..."
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          className="flex-1 bg-transparent outline-none text-white px-4"
+          className="flex-1 bg-transparent outline-none text-white px-4 py-3 text-sm sm:text-base"
         />
 
         <button
           onClick={handleGenerate}
           disabled={loading}
-          className={`px-8 py-4 rounded-xl ${
+          className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold ${
             loading
               ? "bg-gray-500 cursor-not-allowed"
               : "bg-gradient-to-r from-purple-600 to-red-600 hover:scale-105"
@@ -127,12 +115,14 @@ function PromptBox({ setImageUrl, imageUrl }) {
         >
           {loading ? "⏳ Generating..." : "✨ Generate"}
         </button>
+
       </div>
 
-      <div className="flex gap-3 mt-4">
+      <div className="flex flex-col sm:flex-row gap-3 mt-4">
+
         <button
           onClick={surpriseMe}
-          className="bg-pink-600 px-4 py-2 rounded-lg text-white"
+          className="w-full sm:w-auto bg-pink-600 px-5 py-3 rounded-lg text-white"
         >
           🎲 Surprise Me
         </button>
@@ -140,11 +130,13 @@ function PromptBox({ setImageUrl, imageUrl }) {
         <button
           onClick={downloadImage}
           disabled={!imageUrl}
-          className="bg-green-600 px-4 py-2 rounded-lg text-white"
+          className="w-full sm:w-auto bg-green-600 px-5 py-3 rounded-lg text-white"
         >
           📥 Download
         </button>
+
       </div>
+
     </div>
   );
 }
