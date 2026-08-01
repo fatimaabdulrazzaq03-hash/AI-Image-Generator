@@ -33,6 +33,8 @@ function PromptBox({ setImageUrl, imageUrl }) {
     "A realistic robot standing in a futuristic laboratory",
   ];
 
+  const API_URL = "https://peaceful-delight-production.up.railway.app";
+
   const handleGenerate = async () => {
     if (!prompt.trim()) {
       alert("Please enter a prompt!");
@@ -42,17 +44,21 @@ function PromptBox({ setImageUrl, imageUrl }) {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/generate",
-        {
-          prompt,
-        }
-      );
+      // Generate Image
+      const response = await axios.post(`${API_URL}/generate`, {
+        prompt,
+      });
 
       console.log("Backend Response:", response.data);
 
       if (response.data.success) {
         setImageUrl(response.data.imageUrl);
+
+        // Save Image to MongoDB
+        await axios.post(`${API_URL}/api/images/save`, {
+          prompt,
+          imageUrl: response.data.imageUrl,
+        });
       } else {
         alert("Image generation failed.");
       }
