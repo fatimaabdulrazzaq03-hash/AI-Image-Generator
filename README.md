@@ -86,7 +86,7 @@ AI-Image-Generator/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/fatimaabdulrazzaq03-hash/AI-Image-Generator.git
+git clone https://github.com/fatima-razaq/AI-Image-Generator.git
 ```
 
 ### Install Frontend
@@ -128,4 +128,4 @@ BS Computer Science Student
 
 
 GitHub:
-https://github.com/fatimaabdulrazzaq03-hash
+https://github.com/fatima-razaq
