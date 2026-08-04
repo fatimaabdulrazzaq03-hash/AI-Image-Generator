@@ -15,7 +15,7 @@ A modern full-stack AI Image Generator web application built using the MERN Stac
 
 ## 💻 GitHub Repository
 
-🔗 https://github.com/fatimaabdulrazzaq03-hash/AI-Image-Generator
+🔗 https://github.com/fatima-razaq/AI-Image-Generator
 
 ---
 
